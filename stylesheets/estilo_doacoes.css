@@ -1,0 +1,39 @@
+html, body, .content, #conteudo{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+h1{
+	padding: 20px;
+	margin-left: 30px;
+}
+
+.divMap{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+div.content{
+	margin: 5% 2% ;
+}
+
+#map {
+	height: 50%;
+	width: 50%;
+	border: 1px solid black;
+	margin-left:5%;
+}
+
+.list-ajuda{
+	width:50%;
+	margin-left:5%;
+}
+
+@media (max-width: 767px) {
+	#map {
+		height: 35%;
+		width: 90%;
+	}
+}

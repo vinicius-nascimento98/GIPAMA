@@ -1,0 +1,11 @@
+.carousel-inner  > img {
+	min-height: 100px;
+	padding: 30px;
+	margin: 0 auto;
+}
+			
+.item img {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 40px;
+}
