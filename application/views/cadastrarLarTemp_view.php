@@ -58,7 +58,7 @@
 							      	<input type="text" class="form-control" id="estado" required>
     							</div>
     							<div class="col-md-6 mb-3">
-						      		<label for="telefone">Telefone do local</label>
+						      		<label for="telefoneLocal">Telefone do local</label>
 						      		<input type="number" class="form-control" id="telefoneLocal" required>
 						    	</div>
 						    	<div class="col-md-6 mb-3">
@@ -68,13 +68,13 @@
 						    	<div class="col-md-8 mb-3">
 						    		<h4>Tipos de animais</h4>
 							    	<label class="checkbox-inline">
-							    		<input type="checkbox" value="">Cães
+							    		<input type="checkbox" id="tipoAnimais" value="caes">Cães
 							    	</label>
 									<label class="checkbox-inline">
-										<input type="checkbox" value="">Gatos
+										<input type="checkbox" id="tipoAnimais" value="gatos">Gatos
 									</label>
 									<label class="checkbox-inline">
-										<input type="checkbox" value="">Animais silvestres
+										<input type="checkbox" id="tipoAnimais" value="animaisSilvestres">Animais silvestres
 									</label> 
 								</div>
 								<div class="col-md-4 mb-3">
