@@ -44,6 +44,7 @@
 									<li><a href="entrarContato.php">Entrar em contato</a></li>
 								</ul>
 							</li>
+							<li><a href="cadastrarLarTempView.php">Cadastrar Lar Temp.</a></li>
 							<li><a href="videos.php">Videos</a></li>
 							<li><a onclick="sizeFont('+');" id='btn_mais'>A+</a></li>
 							<li><a onclick="sizeFont('-');" id='btn_menos'>A-</a></li>

@@ -37,8 +37,9 @@
 								<li class="bg-success"><a href="http://www.ssp.sp.gov.br/" target=“_blank”><strong>Delegacia Online</strong></a></li>
 								<li class="divider" role = "separator"></li>
 								<li><a href="contatos.php">Contatos Importantes</a></li>
-								 <li><a href="entrarContato.php">Entrar em contato</a></li>
+								<li><a href="entrarContato.php">Entrar em contato</a></li>
 							</ul>
+							<li><a href="cadastrarLarTempView.php">Cadastrar Lar Temp.</a></li>
 							<li><a href="videos.php">Videos</a></li>
 							<li><a onclick="sizeFont('+');" id='btn_mais'>A+</a></li>
 							<li><a onclick="sizeFont('-');" id='btn_menos'>A-</a></li>

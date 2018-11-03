@@ -57,6 +57,7 @@
 									<li><a href="entrarContato.php">Entrar em contato</a></li>
 								</ul>
 							</li>
+							<li><a href="cadastrarLarTempView.php">Cadastrar Lar Temp.</a></li>
 							<li><a href="videos.php">Videos</a></li>
 							<li><a onclick="sizeFont('+');" id='btn_mais'>A+</a></li>
 							<li><a onclick="sizeFont('-');" id='btn_menos'>A-</a></li>
@@ -229,15 +230,9 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
-
-				<div class="voltar_topo dropup pull-right">
-					<a id="link_top" href="#container">Voltar ao Topo <span class="caret"></span></a>
-				</div>	
 			</div>
 		</div>
-		
 		<script src='javascripts/jquery-2.2.4.min.js' type='text/javascript'></script>
 		<script src="javascripts/bootstrap.min.js"></script>
 		<script src="javascripts/bootstrap-datepicker.min.js"></script>
