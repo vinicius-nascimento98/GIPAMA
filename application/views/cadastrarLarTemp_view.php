@@ -35,56 +35,57 @@
 							<div class="form-row">
     							<div class="col-md-8 mb-3">
 							      <label for="endereco">Enredeço</label>
-							      <input type="text" class="form-control" id="endereco" name="endereco"  placeholder="Rua ou Avenida..." required>
+							      <input type="text" class="form-control" id="endereco" name="endereco"  placeholder="Rua ou Avenida..." required />
 						    	</div>
 						    	<div class="col-md-4 mb-3">
 						      		<label for="numeroEnd">Número</label>
-						      		<input type="number" class="form-control" id="numeroEnd" name="numeroEnd" required>
+						      		<input type="number" class="form-control" id="numeroEnd" name="numeroEnd" placeholder="Número da residencia..." required />
 						    	</div>
 						    	<div class="col-md-6 mb-3">
 						      		<label for="complemento">Complemento</label>				
-						        	<input type="text" class="form-control" id="complemento" name="complemento" required>
+						        	<input type="text" class="form-control" id="complemento" name="complemento"
+						        	placeholder="Informe um complemento..." required />
 						    	</div>
 						    	<div class="col-md-6 mb-3">
 						      		<label for="cep">CEP</label>				
-						        	<input type="number" class="form-control" id="cep" name="cep" required>
+						        	<input type="number" class="form-control" id="cep" name="cep" placeholder="Informe seu CEP..." required />
 						    	</div>
 						    	<div class="col-md-10 mb-3">
 								    <label for="cidade">Cidade</label>
-								    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe sua cidade..." required>
+								    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe sua cidade..." required />
 								</div>
 								<div class="col-md-2 mb-3">
 							     	<label for="estado">Estado</label>
-							      	<input type="text" class="form-control" id="estado" name="cidade" required>
+							      	<input type="text" class="form-control" id="estado" name="estado" placeholder="UF" required />
     							</div>
     							<div class="col-md-6 mb-3">
 						      		<label for="telefoneLocal">Telefone do local</label>
-						      		<input type="number" class="form-control" id="telefoneLocal" name="telefoneLocal" required>
+						      		<input type="number" class="form-control" id="telefoneLocal" name="telefoneLocal" placeholder="Informe seu telefone..." required />
 						    	</div>
 						    	<div class="col-md-6 mb-3">
 						      		<label for="qtdAnimais">Quantidade de animais</label>
-						      		<input type="number" class="form-control" id="qtdAnimais" name="qtdAnimais" required>
+						      		<input type="number" class="form-control" id="qtdAnimais" name="qtdAnimais" placeholder="Informe a quantidade de animais..." required />
 						    	</div>
 						    	<div class="col-md-8 mb-3">
 						    		<h4>Tipos de animais</h4>
 							    	<label class="checkbox-inline">
-							    		<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="caes">Cães
+							    		<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="caes" />Cães
 							    	</label>
 									<label class="checkbox-inline">
-										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="gatos">Gatos
+										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="gatos" />Gatos
 									</label>
 									<label class="checkbox-inline">
-										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="animaisSilvestres">Animais silvestres
+										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="animaisSilvestres" /> Animais silvestres
 									</label> 
 								</div>
 								<div class="col-md-4 mb-3">
 									<h4>Responsável</h4>
 									<div class="form-check">
-									  	<input class="form-check-input" name="responsavel" type="radio" value="sim" id="sim">
+									  	<input class="form-check-input" name="responsavel" type="radio" value="sim" id="sim" onchange="habilita_div(this)" />
 									  	<label class="form-check-label" for="sim">
 									    	Sim
 									  	</label>
-									  	<input class="form-check-input" name="responsavel" type="radio" value="nao" id="nao" onchange="habilita_div(this)">
+									  	<input class="form-check-input" name="responsavel" type="radio" value="nao" id="nao" onchange="habilita_div(this)" />
 									  	<label class="form-check-label" for="nao">
 									    	Não
 									  	</label>
@@ -92,11 +93,11 @@
 								</div>
 						    	<div class="col-md-6 mb-3" id="nomeResp">
 						      		<label for="nomeCompletoResponsavel">Nome Completo</label>	
-						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" required>
+						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." required />
 						    	</div>
 						    	<div class="col-md-6 mb-3" id="telefoneResp">
 						      		<label for="telefone">Telefone Responsável</label>
-						      		<input type="number" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" required>
+						      		<input type="number" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Informe o telefone..." required />
 						    	</div>
 						  	</div>						  	
 						  	<button type="reset" id="btnLimpar" class="btn btn-danger">Limpar</button>
