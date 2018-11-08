@@ -31,50 +31,50 @@
 				</div> 
 				<div class="card" style="width: 60rem;">
 					<div class="card-body">
-						<form id="formID">
+						<form id="formID" action = "validacao_form_lar_temp" method="POST">
 							<div class="form-row">
     							<div class="col-md-8 mb-3">
 							      <label for="endereco">Enredeço</label>
-							      <input type="text" class="form-control" id="endereco" placeholder="Rua ou Avenida..." required>
+							      <input type="text" class="form-control" id="endereco" name="endereco"  placeholder="Rua ou Avenida..." required>
 						    	</div>
 						    	<div class="col-md-4 mb-3">
 						      		<label for="numeroEnd">Número</label>
-						      		<input type="number" class="form-control" id="numeroEnd" required>
+						      		<input type="number" class="form-control" id="numeroEnd" name="numeroEnd" required>
 						    	</div>
 						    	<div class="col-md-6 mb-3">
 						      		<label for="complemento">Complemento</label>				
-						        	<input type="text" class="form-control" id="complemento" required>
+						        	<input type="text" class="form-control" id="complemento" name="complemento" required>
 						    	</div>
 						    	<div class="col-md-6 mb-3">
 						      		<label for="cep">CEP</label>				
-						        	<input type="number" class="form-control" id="cep" required>
+						        	<input type="number" class="form-control" id="cep" name="cep" required>
 						    	</div>
 						    	<div class="col-md-10 mb-3">
 								    <label for="cidade">Cidade</label>
-								    <input type="text" class="form-control" id="cidade" placeholder="Informe sua cidade..." required>
+								    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe sua cidade..." required>
 								</div>
 								<div class="col-md-2 mb-3">
 							     	<label for="estado">Estado</label>
-							      	<input type="text" class="form-control" id="estado" required>
+							      	<input type="text" class="form-control" id="estado" name="cidade" required>
     							</div>
     							<div class="col-md-6 mb-3">
 						      		<label for="telefoneLocal">Telefone do local</label>
-						      		<input type="number" class="form-control" id="telefoneLocal" required>
+						      		<input type="number" class="form-control" id="telefoneLocal" name="telefoneLocal" required>
 						    	</div>
 						    	<div class="col-md-6 mb-3">
 						      		<label for="qtdAnimais">Quantidade de animais</label>
-						      		<input type="number" class="form-control" id="qtdAnimais" required>
+						      		<input type="number" class="form-control" id="qtdAnimais" name="qtdAnimais" required>
 						    	</div>
 						    	<div class="col-md-8 mb-3">
 						    		<h4>Tipos de animais</h4>
 							    	<label class="checkbox-inline">
-							    		<input type="checkbox" id="tipoAnimais" value="caes">Cães
+							    		<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="caes">Cães
 							    	</label>
 									<label class="checkbox-inline">
-										<input type="checkbox" id="tipoAnimais" value="gatos">Gatos
+										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="gatos">Gatos
 									</label>
 									<label class="checkbox-inline">
-										<input type="checkbox" id="tipoAnimais" value="animaisSilvestres">Animais silvestres
+										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="animaisSilvestres">Animais silvestres
 									</label> 
 								</div>
 								<div class="col-md-4 mb-3">
@@ -92,11 +92,11 @@
 								</div>
 						    	<div class="col-md-6 mb-3" id="nomeResp">
 						      		<label for="nomeCompletoResponsavel">Nome Completo</label>	
-						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" required>
+						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" required>
 						    	</div>
 						    	<div class="col-md-6 mb-3" id="telefoneResp">
 						      		<label for="telefone">Telefone Responsável</label>
-						      		<input type="number" class="form-control" id="telefoneResponsavel" required>
+						      		<input type="number" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" required>
 						    	</div>
 						  	</div>						  	
 						  	<button type="reset" id="btnLimpar" class="btn btn-danger">Limpar</button>
