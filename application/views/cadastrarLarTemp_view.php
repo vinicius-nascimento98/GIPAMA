@@ -68,15 +68,12 @@
 						    	</div>
 						    	<div class="col-md-8 mb-3">
 						    		<h4>Tipos de animais</h4>
-							    	<label class="checkbox-inline">
-							    		<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="caes" />Cães
-							    	</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="gatos" />Gatos
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="animaisSilvestres" /> Animais silvestres
-									</label> 
+							    	<select class="custom-select" name="tipoAnimais">
+									  <option selected>--Selecione--</option>
+									  <option value="caes">Cães</option>
+									  <option value="gatos">Gatos</option>
+									  <option value="animaisSilvestres">Animais Silvestres</option>
+									</select>
 								</div>
 								<div class="col-md-4 mb-3">
 									<h4>Responsável</h4>
@@ -92,6 +89,14 @@
 									</div>
 								</div>
 						    	<div class="col-md-6 mb-3" id="nomeResp">
+						      		<label for="nomeCompletoResponsavel">Nome Completo</label>	
+						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." />
+						    	</div>
+						    	<div class="col-md-6 mb-3" id="telefoneResp">
+						      		<label for="telefone">Telefone Responsável</label>
+						      		<input type="number" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Informe o telefone..." />
+						    	</div>
+								<div class="col-md-6 mb-3" id="nomeResp">
 						      		<label for="nomeCompletoResponsavel">Nome Completo</label>	
 						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." />
 						    	</div>
