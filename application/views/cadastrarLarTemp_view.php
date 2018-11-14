@@ -31,7 +31,7 @@
 				</div> 
 				<div class="card" style="width: 60rem;">
 					<div class="card-body">
-						<form id="formID" action = "validacao_form_lar_temp" method="POST">
+						<form id="formID" action = "<?= base_url() ?>index.php/CadastrarLarTemp/submit_lar_temp" method="POST">
 							<div class="form-row">
     							<div class="col-md-8 mb-3">
 							      <label for="endereco">Enredeço</label>
@@ -93,11 +93,11 @@
 								</div>
 						    	<div class="col-md-6 mb-3" id="nomeResp">
 						      		<label for="nomeCompletoResponsavel">Nome Completo</label>	
-						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." required />
+						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." />
 						    	</div>
 						    	<div class="col-md-6 mb-3" id="telefoneResp">
 						      		<label for="telefone">Telefone Responsável</label>
-						      		<input type="number" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Informe o telefone..." required />
+						      		<input type="number" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Informe o telefone..." />
 						    	</div>
 						  	</div>						  	
 						  	<button type="reset" id="btnLimpar" class="btn btn-danger">Limpar</button>
