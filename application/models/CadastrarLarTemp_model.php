@@ -53,7 +53,8 @@ class CadastrarLarTemp_model extends CI_Model {
             if(!$lar_temp['usuario_resp']){
 
                 $this->db->insert('responsavel',$resp);
-                $id_resp = $this->db->select_max('id')
+                
+				$id_resp = $this->db->select_max('id')
                     ->get('responsavel')
                     -> result_array();
 
@@ -62,7 +63,7 @@ class CadastrarLarTemp_model extends CI_Model {
             }
         $this->db->trans_complete();
 
-        if($this->db->trans_status() === FALSE){ 
+        if($this->db->trans_status() == FALSE){ 
             log_message('ERROR',"Ocorreu algum problema na execução das Transações entre as tabelas!");
             return FALSE;
         }

@@ -29,7 +29,7 @@ class CadastrarLarTemp extends CI_Controller {
 		$param['estado']=$this->input->post('estado');
 		$param['complemento']=$this->input->post('complemento');
 		$param['usuario_resp']=$this->input->post('responsavel');
-		$param['cod_usuario']=0; //aqui deve ser colocado a sessão com o id do usuario
+		$param['cod_usuario']=1234567898; //aqui deve ser colocado a sessão com o id do usuario
 		$param['n_telefone_lar_temp']=$this->input->post('telefoneLocal');
 		$param['nome']=$this->input->post('nomeCompletoResponsavel');
 		$param['n_telefone_responsavel']=$this->input->post('telefoneResponsavel');

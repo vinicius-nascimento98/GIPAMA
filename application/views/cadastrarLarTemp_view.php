@@ -68,15 +68,11 @@
 						    	</div>
 						    	<div class="col-md-8 mb-3">
 						    		<h4>Tipos de animais</h4>
-							    	<label class="checkbox-inline">
-							    		<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="caes" />Cães
-							    	</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="gatos" />Gatos
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="tipoAnimais" name="tipoAnimais" value="animaisSilvestres" /> Animais silvestres
-									</label> 
+							    	<select class="custom-select" name="tipoAnimais">
+									  <option value="caes" selected>Cães</option>
+									  <option value="gatos">Gatos</option>
+									  <option value="animaisSilvestres">Animais Silvestres</option>
+									</select>
 								</div>
 								<div class="col-md-4 mb-3">
 									<h4>Responsável</h4>
