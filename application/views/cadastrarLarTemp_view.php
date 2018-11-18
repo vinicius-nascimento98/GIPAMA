@@ -110,6 +110,9 @@
 		<script src="<?= base_url() ?>javascripts/valida_contato.js"></script>
 		<script src="<?= base_url() ?>javascripts/acessibilidade.js"></script>
 		<script src="<?= base_url() ?>javascripts/habilita_div.js"></script>
+		<script src="<?= base_url() ?>javascripts/jquery.mask.js"></script>
+		<script src="<?= base_url() ?>javascripts/jquery.mask.min.js"></script>
 		<script src="<?= base_url() ?>javascripts/mascara.js"></script>
+
 	</body>
 </html>
