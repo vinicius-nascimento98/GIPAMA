@@ -17,7 +17,7 @@ class CadastrarLarTemp_model extends CI_Model {
         //montando vetor para inserir na tabela lar_temp
         foreach ($registro as $i => $v) {
             
-            if($i != 'n_telefone_lar_temp'){
+            if($i != 'nome'){
                 
                 if($i == 'usuario_resp'){
                     $v == 'sim' ? $v=1 : $v=0;
@@ -26,7 +26,6 @@ class CadastrarLarTemp_model extends CI_Model {
                 $lar_temp[$i] = $v;
             }
             else{
-                $tel_lar_temp = $v;
                 break;
             }
 
@@ -47,8 +46,6 @@ class CadastrarLarTemp_model extends CI_Model {
             $id_lar_temp = $this->db->select_max('id')
                 ->get('lar_temp')
                 -> result_array();
-
-            $this->db->query("INSERT INTO telefone_lar_temp (`n_telefone`,`cod_lar_temp`) VALUES ('$tel_lar_temp',".$id_lar_temp[0]['id'].")");
             
             if(!$lar_temp['usuario_resp']){
 

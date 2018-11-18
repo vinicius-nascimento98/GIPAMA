@@ -31,6 +31,11 @@
 				</div> 
 				<div class="card" style="width: 60rem;">
 					<div class="card-body">
+						<?php
+							if($this->session->flashdata('message') != "" && $this->session->flashdata('message') != NULL){
+								echo "<div class='alert alert-".$this->session->flashdata("color")."' role='alert'>".$this->session->flashdata('message')."</div>";
+							}
+						?>
 						<form id="formID" action = "<?= base_url() ?>index.php/CadastrarLarTemp/submit_lar_temp" method="POST">
 							<div class="form-row">
     							<div class="col-md-8 mb-3">
@@ -77,7 +82,7 @@
 								<div class="col-md-4 mb-3">
 									<h4>Responsável</h4>
 									<div class="form-check">
-									  	<input class="form-check-input" name="responsavel" type="radio" value="sim" id="sim" onchange="habilita_div(this)" />
+									  	<input class="form-check-input" name="responsavel" type="radio" value="sim" id="sim" onchange="habilita_div(this)" checked="checked"/>
 									  	<label class="form-check-label" for="sim">
 									    	Sim
 									  	</label>

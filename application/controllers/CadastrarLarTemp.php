@@ -10,6 +10,7 @@ class CadastrarLarTemp extends CI_Controller {
         $this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->model('CadastrarLarTemp_model','cad_lar_temp');
+		$this->load->library("session");
     }
 
     public function index(){
@@ -20,9 +21,8 @@ class CadastrarLarTemp extends CI_Controller {
 
 		//pegando dados submetidos do formulário
 		$param['qtde_animais']=$this->input->post('qtdAnimais');
-		$param['tipo_animal']=$this->input->post('tipoAnimais');
-		$param['rua']=$this->input->post('endereco');
-		$param['avenida']=$this->input->post('endereco');
+		$param['tipo_animal']= $this->input->post('tipoAnimais') == 'animaisSilvestres' ? 'animais silvestres' : $this->input->post('tipoAnimais');
+		$param['logradouro']=$this->input->post('endereco');
 		$param['numero']=$this->input->post('numeroEnd');
 		$param['cep']=$this->input->post('cep');
 		$param['cidade']=$this->input->post('cidade');
@@ -30,7 +30,7 @@ class CadastrarLarTemp extends CI_Controller {
 		$param['complemento']=$this->input->post('complemento');
 		$param['usuario_resp']=$this->input->post('responsavel');
 		$param['cod_usuario']=1234567898; //aqui deve ser colocado a sessão com o id do usuario
-		$param['n_telefone_lar_temp']=$this->input->post('telefoneLocal');
+		$param['telefone']=$this->input->post('telefoneLocal');
 		$param['nome']=$this->input->post('nomeCompletoResponsavel');
 		$param['n_telefone_responsavel']=$this->input->post('telefoneResponsavel');
 
@@ -43,10 +43,14 @@ class CadastrarLarTemp extends CI_Controller {
 
 		//passando os dados para o model
 		if($this->cad_lar_temp->insert($dados)){
-			echo "Inserido com sucesso!";//implementar tela de alerta
+			$this->session->set_flashdata("message","Inserido com sucesso!");//implementar tela de alerta
+			$this->session->set_flashdata("color","success");
+			$this->load->view('cadastrarLarTemp_view');
 		}
 		else{
-			echo "Erro!"; //implementar tela de alerta
+			$this->session->set_flashdata("message","Ops! Ocorreu um problema. Tente novamente mais tarde!"); //implementar tela de alerta
+			$this->session->set_flashdata("color","danger");
+			$this->load->view('cadastrarLarTemp_view');
 		}
 
     }
