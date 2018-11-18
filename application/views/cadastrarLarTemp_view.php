@@ -2,7 +2,7 @@
  defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,11 +44,11 @@
 						    	<div class="col-md-6 mb-3">
 						      		<label for="complemento">Complemento</label>				
 						        	<input type="text" class="form-control" id="complemento" name="complemento"
-						        	placeholder="Informe um complemento..." required />
+						        	placeholder="Informe um complemento..." />
 						    	</div>
 						    	<div class="col-md-6 mb-3">
 						      		<label for="cep">CEP</label>				
-						        	<input type="number" class="form-control" id="cep" name="cep" placeholder="Informe seu CEP..." required />
+						        	<input type="text" class="form-control" id="cep" name="cep" placeholder="Ex.: 00000-000"required />
 						    	</div>
 						    	<div class="col-md-10 mb-3">
 								    <label for="cidade">Cidade</label>
@@ -60,7 +60,7 @@
     							</div>
     							<div class="col-md-6 mb-3">
 						      		<label for="telefoneLocal">Telefone do local</label>
-						      		<input type="number" class="form-control" id="telefoneLocal" name="telefoneLocal" placeholder="Informe seu telefone..." required />
+						      		<input type="tel" class="form-control" id="telefoneLocal" name="telefoneLocal" placeholder="Ex.: (00)0000-0000" required />
 						    	</div>
 						    	<div class="col-md-6 mb-3">
 						      		<label for="qtdAnimais">Quantidade de animais</label>
@@ -89,11 +89,11 @@
 								</div>
 						    	<div class="col-md-6 mb-3" id="nomeResp">
 						      		<label for="nomeCompletoResponsavel">Nome Completo</label>	
-						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." />
+						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." required />
 						    	</div>
 						    	<div class="col-md-6 mb-3" id="telefoneResp">
 						      		<label for="telefone">Telefone Responsável</label>
-						      		<input type="number" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Informe o telefone..." />
+						      		<input type="tel" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Ex.: (00)0000-0000" required />
 						    	</div>
 						  	</div>						  	
 						  	<button type="reset" id="btnLimpar" class="btn btn-danger">Limpar</button>
@@ -110,5 +110,6 @@
 		<script src="<?= base_url() ?>javascripts/valida_contato.js"></script>
 		<script src="<?= base_url() ?>javascripts/acessibilidade.js"></script>
 		<script src="<?= base_url() ?>javascripts/habilita_div.js"></script>
+		<script src="<?= base_url() ?>javascripts/mascara.js"></script>
 	</body>
 </html>

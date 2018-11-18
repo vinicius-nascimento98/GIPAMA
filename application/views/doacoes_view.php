@@ -71,7 +71,7 @@
 			</div>
 			
 			<div class="divMap">
-				<div id='map' class="container xs-col-4" alt="Pontos para Doações"></div>
+				<div id="map" class="container xs-col-4" alt="Pontos para Doações"></div>
 			</div>
 		</div>
 	

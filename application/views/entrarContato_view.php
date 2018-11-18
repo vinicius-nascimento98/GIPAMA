@@ -2,7 +2,7 @@
  defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +40,7 @@
 							</div>
 							<div class="form-group">
 								<label for="endereco">Endereço</label>
-								<input type="text"name="Endereço" title="Preencha o campo endereço!" class="form-control" id="endereco" placeholder="Digite seu endereço..." required />
+								<input type="text" name="Endereço" title="Preencha o campo endereço!" class="form-control" id="endereco" placeholder="Digite seu endereço..." required />
 							</div>
 							<div class="form-group">
 								<label for="email">Email</label>
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 		</div>
-		<script src='<?=base_url()?>javascripts/jquery-2.2.4.min.js' type='text/javascript'></script>
+		<script src="<?=base_url()?>javascripts/jquery-2.2.4.min.js" type='text/javascript'></script>
 		<script src="<?=base_url()?>javascripts/bootstrap.min.js"></script>
 		<script src="<?=base_url()?>javascripts/bootstrap-datepicker.min.js"></script>
 		<script src="<?=base_url()?>javascripts/bootstrap-datepicker.pt-BR.min.js"></script>
