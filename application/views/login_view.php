@@ -92,15 +92,29 @@
                         <div class="row">
                             <div class="form-group col-xs-6">
                                 <label class="control-label" for="cidade">Cidade</label>
-                                <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Informe sua cidade..." />
+                                <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Informe sua cidade..." required="required" />
                             </div>
                             <div class="form-group col-xs-2">
                                 <label class="control-label" for="estado">Estado</label>
-                                <input type="text" name="estado" id="estado" max="2" class="form-control" placeholder="ex.: UF" />
+                                <input type="text" name="estado" id="estado" max="2" class="form-control" placeholder="ex.: UF" required="required" />
                             </div>
                             <div class="form-group col-xs-4">
                                 <label class="control-label" for="data_nasc">Data Nascimento</label>
-                                <input type="date" name="data_nasc" id="data_nasc" class="form-control" />
+                                <input type="date" name="data_nasc" id="data_nasc" class="form-control" required="required" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-4">
+                                <label class="control-label" for="tel1">Tel 1</label>
+                                <input type="tel" name="tel1" id="tel1" class="form-control tel" placeholder="(00)0000-0000" required="required" />
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label class="control-label" for="tel2">Tel 2</label>
+                                <input type="tel" name="tel2" id="tel2" class="form-control tel" placeholder="(00)0000-0000" />
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label class="control-label" for="tel3">Tel 3</label>
+                                <input type="tel" name="tel3" id="tel3" class="form-control tel" placeholder="(00)0000-0000" />
                             </div>
                         </div>
                         <div class="row">
