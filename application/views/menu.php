@@ -30,6 +30,7 @@
 							<li><a href="<?= base_url() ?>index.php/videos">Videos</a></li>
 							<li><a onclick="sizeFont('+');" id='btn_mais'>A+</a></li>
 							<li><a onclick="sizeFont('-');" id='btn_menos'>A-</a></li>
+							<li><a href="<?= base_url() ?>index.php/login">Entrar</a></li>
 						</ul>
 					</div>
 				</div>
