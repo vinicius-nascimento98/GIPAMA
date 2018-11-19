@@ -5,6 +5,9 @@ $(document).ready(function () {
 	
 	//mask para campo cpf
 	$("#cpf").mask('999.999.999-99');
+	
+	//mask para campo rg
+	$("#rg").mask('99.999.999-99');
 
 	//mask para campo cep
 	$("#cep").mask('99999-999');
