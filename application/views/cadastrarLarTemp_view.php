@@ -94,11 +94,15 @@
 								</div>
 						    	<div class="col-md-6 mb-3" id="nomeResp">
 						      		<label for="nomeCompletoResponsavel">Nome Completo</label>	
-						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." required />
+						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." />
 						    	</div>
 						    	<div class="col-md-6 mb-3" id="telefoneResp">
 						      		<label for="telefone">Telefone Responsável</label>
-						      		<input type="tel" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Ex.: (00)0000-0000" required />
+						      		<input type="tel" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Ex.: (00)0000-0000" />
+						      		<br>
+						    	</div>
+						    	<div id="adicionaCampo">
+						    		<button type="submit" id="adicionar" class="btn btn-success" onchange="habilita_div(this)">+</button>
 						    	</div>
 						  	</div>						  	
 						  	<button type="reset" id="btnLimpar" class="btn btn-danger">Limpar</button>
