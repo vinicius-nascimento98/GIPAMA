@@ -45,12 +45,12 @@ class CadastrarLarTemp extends CI_Controller {
 		if($this->cad_lar_temp->insert($dados)){
 			$this->session->set_flashdata("message","Inserido com sucesso!");//implementar tela de alerta
 			$this->session->set_flashdata("color","success");
-			$this->load->view('cadastrarLarTemp_view');
+			redirect('cadastrarLarTemp');
 		}
 		else{
 			$this->session->set_flashdata("message","Ops! Ocorreu um problema. Tente novamente mais tarde!"); //implementar tela de alerta
 			$this->session->set_flashdata("color","danger");
-			$this->load->view('cadastrarLarTemp_view');
+			redirect('cadastrarLarTemp');
 		}
 
     }
