@@ -9,7 +9,11 @@ class CadastrarUsuario extends CI_Controller {
 
         $this->load->helper('url');
 		$this->load->helper('form');
+<<<<<<< HEAD
 		//$this->load->model('CadastrarUsuario_model','cad_usuario');
+=======
+		$this->load->model('CadastrarUsuario_model','cad_usuario');
+>>>>>>> 7d4119e2f3a4be4e39130dea36ec991a80df9737
 		$this->load->library("session");
     }
 
@@ -32,9 +36,16 @@ class CadastrarUsuario extends CI_Controller {
 		$param['tel3'] = $this->input->post('tel3'); 
 		$param['senha'] = $this->input->post('senha'); 
 		$param['email'] = $this->input->post('email'); 
+<<<<<<< HEAD
 
 		//passando dados para o método de inserção no banco de dados
 		//$this->inserir_usuario($param);
+=======
+		$param['telefone']=$this->input->post('telefoneLocal');
+
+		//passando dados para o método de inserção no banco de dados
+		$this->inserir_usuario($param);
+>>>>>>> 7d4119e2f3a4be4e39130dea36ec991a80df9737
 		
 	}
 
