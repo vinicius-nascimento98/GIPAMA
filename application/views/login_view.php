@@ -27,7 +27,7 @@
             </header>
 
             <!--Alterar aqui o caminho que o post irai ao ser submetido para logar-->
-            <form action="login.php" method="post">
+            <form action = "<?= base_url() ?>index.php/CadastrarUsuario/submit_usuario" method="POST">
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">
