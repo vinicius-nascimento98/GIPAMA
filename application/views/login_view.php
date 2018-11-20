@@ -69,7 +69,7 @@
                 </div>
 
                 <!--Alterar aqui o caminho a ser seguido pelo post ao ser submetido para inserir um novo usuário-->
-                <form action="salvarUsuario.php" method="post">
+                <form action = "<?= base_url() ?>index.php/CadastrarUsuario/submit_usuario" method="POST">
                     <div class="modal-body">
                             
                         <div class="row">
