@@ -19,7 +19,13 @@
     <div class="conteudo">
         <!--incluindo o arquivo do menu-->
 		<?= include('menu.php') ?>
-
+        <div class="col-xs-12 alerta">
+            <?php
+                if($this->session->flashdata('message') != "" && $this->session->flashdata('message') != NULL){
+                    echo "<div class='alert alert-".$this->session->flashdata("color")."' role='alert'>".$this->session->flashdata('message')."</div>";
+                }
+            ?>
+        </div>
         <div class="login-form col-xs-10 col-xs-offset-1 
             col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
             <header>
@@ -67,7 +73,6 @@
                     </button>
                     <h4 class="modal-title">Novo Usuário</h4>
                 </div>
-
                 <!--Alterar aqui o caminho a ser seguido pelo post ao ser submetido para inserir um novo usuário-->
                 <form action = "<?= base_url() ?>index.php/CadastrarUsuario/submit_usuario" method="POST">
                     <div class="modal-body">

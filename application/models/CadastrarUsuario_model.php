@@ -1,73 +1,63 @@
-<?php
+    <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+    defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CadastrarUsuario extends CI_Model {
+    class CadastrarUsuario_model extends CI_Model {
 
-	public function __construct(){
+        public function __construct(){
 
-		parent::__construct();
+            parent::__construct();
 
-		//carregando o banco de dados
-		$this->load->database();
-	}
+            //carregando o banco de dados
+            $this->load->database();
+        }
 
-	public function insert($registro){
+        public function insert($registro){
 
-        //montando vetor para inserir na tabela lar_temp
-        foreach ($registro as $i => $v) {
-            
-            if($i != 'nome'){
+            //montando vetor para inserir na usuario
+            foreach ($registro as $i => $v) {
                 
-                if($i == 'usuario_resp'){
-                    $v == 'sim' ? $v=1 : $v=0;
+                if($i != 'tel1'){
+                    
+                    if($i == 'cod_papel'){
+
+                        $v=2;
+                    }
+
+                    $user[$i] = $v;
                 }
-                
-                $lar_temp[$i] = $v;
+                else{
+                    break;
+                }
+
+            }
+            
+            //montando vetores das tabelas usuario e telefone_usuario
+            $registro['tel1'] != "" ? $tel1= $registro['tel1'] : $tel1= null;
+            $registro['tel2'] != "" ? $tel2= $registro['tel2'] : $tel2= null;
+            $registro['tel3'] != "" ? $tel3= $registro['tel3'] : $tel3= null;
+
+            $this->db->trans_strict(TRUE);
+
+            //montando as query's de inserção do banco de dados e suas transações
+            $this->db->trans_start(); 
+                $this->db->insert('usuario',$user);
+                $id_user = $user['cpf'];
+
+                $tel1 != null ? $this->db->query("INSERT INTO telefone_usuario (`n_telefone`,`cod_usuario`) VALUES ('$tel1','".$id_user."')") : $tel1 = "";
+                $tel2 != null ? $this->db->query("INSERT INTO telefone_usuario (`n_telefone`,`cod_usuario`) VALUES ('$tel2','".$id_user."')") : $tel2 = "";
+                $tel3 != null ? $this->db->query("INSERT INTO telefone_usuario (`n_telefone`,`cod_usuario`) VALUES ('$tel3','".$id_user."')") : $tel3 = "";
+    
+            $this->db->trans_complete();
+
+            if($this->db->trans_status() == FALSE){ 
+                log_message('ERROR',"Ocorreu algum problema na execução das Transações entre as tabelas!");
+                return FALSE;
             }
             else{
-                break;
+                return TRUE;
             }
-
+            
         }
         
-        //montando vetores das tabelas responsável e telefone_responsavel
-        if($registro['usuario_resp'] != 'sim'){
-                
-            $resp['nome'] = $registro['nome'];
-            $tel_resp = $registro['n_telefone_responsavel'];
-        }
-
-        $this->db->trans_strict(TRUE);
-
-        //montando as query's de inserção do banco de dados e suas transações
-        $this->db->trans_start(); 
-            $this->db->insert('lar_temp',$lar_temp);
-            $id_lar_temp = $this->db->select_max('id')
-                ->get('lar_temp')
-                -> result_array();
-            
-            if(!$lar_temp['usuario_resp']){
-
-                $this->db->insert('responsavel',$resp);
-                
-				$id_resp = $this->db->select_max('id')
-                    ->get('responsavel')
-                    -> result_array();
-
-                $this->db->query("INSERT INTO telefone_responsavel (`n_telefone`,`cod_responsavel`) VALUES ('$tel_resp',".$id_resp[0]['id'].")");
-                $this->db->query("INSERT INTO lar_temp_resp (`cod_responsavel`, `cod_lar_temp`) VALUES (".$id_resp[0]['id'].",".$id_lar_temp[0]['id'].")");
-            }
-        $this->db->trans_complete();
-
-        if($this->db->trans_status() == FALSE){ 
-            log_message('ERROR',"Ocorreu algum problema na execução das Transações entre as tabelas!");
-            return FALSE;
-        }
-        else{
-            return TRUE;
-        }
-		
     }
-    
-}

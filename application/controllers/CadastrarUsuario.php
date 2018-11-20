@@ -9,11 +9,7 @@ class CadastrarUsuario extends CI_Controller {
 
         $this->load->helper('url');
 		$this->load->helper('form');
-<<<<<<< HEAD
-		//$this->load->model('CadastrarUsuario_model','cad_usuario');
-=======
 		$this->load->model('CadastrarUsuario_model','cad_usuario');
->>>>>>> 7d4119e2f3a4be4e39130dea36ec991a80df9737
 		$this->load->library("session");
     }
 
@@ -24,28 +20,21 @@ class CadastrarUsuario extends CI_Controller {
     public function submit_usuario(){
 
 		//pegando dados submetidos do formulário
-		
-		$param['nome'] = $this->input->post('nome'); 
+		$param['cod_papel'] = $this->input->post('papel'); 
+		$param['nome'] = $this->input->post('nome');
 		$param['cpf'] = $this->input->post('cpf'); 
 		$param['rg'] = $this->input->post('rg'); 
 		$param['cidade'] = $this->input->post('cidade'); 
 		$param['estado'] = $this->input->post('estado'); 
-		$param['data_nasc'] = $this->input->post('data_nasc'); 
-		$param['tel1'] = $this->input->post('tel1'); 
-		$param['tel2'] = $this->input->post('tel2'); 
-		$param['tel3'] = $this->input->post('tel3'); 
+		$param['data_nasc'] = $this->input->post('data_nasc');
 		$param['senha'] = $this->input->post('senha'); 
 		$param['email'] = $this->input->post('email'); 
-<<<<<<< HEAD
-
-		//passando dados para o método de inserção no banco de dados
-		//$this->inserir_usuario($param);
-=======
-		$param['telefone']=$this->input->post('telefoneLocal');
+		$param['tel1'] = $this->input->post('tel1'); 
+		$param['tel2'] = $this->input->post('tel2'); 
+		$param['tel3'] = $this->input->post('tel3');
 
 		//passando dados para o método de inserção no banco de dados
 		$this->inserir_usuario($param);
->>>>>>> 7d4119e2f3a4be4e39130dea36ec991a80df9737
 		
 	}
 
@@ -55,12 +44,12 @@ class CadastrarUsuario extends CI_Controller {
 		if($this->cad_usuario->insert($dados)){
 			$this->session->set_flashdata("message","Inserido com sucesso!");//implementar tela de alerta
 			$this->session->set_flashdata("color","success");
-			redirect('login_view');
+			redirect('CadastrarUsuario');
 		}
 		else{
 			$this->session->set_flashdata("message","Ops! Ocorreu um problema. Tente novamente mais tarde!"); //implementar tela de alerta
 			$this->session->set_flashdata("color","danger");
-			redirect('login_view');
+			redirect('CadastrarUsuario');
 		}
 
     }
