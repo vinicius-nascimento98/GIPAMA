@@ -1,5 +1,11 @@
 <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
+
+ if(!$this->session->has_userdata('nome') && !$this->session->has_userdata('id')){
+		
+	redirect('Login');
+ }
+ else{
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -125,3 +131,6 @@
 
 	</body>
 </html>
+<?php
+ }
+?>

@@ -16,7 +16,7 @@
 </head>
 <body>
 	
-    <div class="conteudo">
+    <div id="conteudo">
         <!--incluindo o arquivo do menu-->
 		<?= include('menu.php') ?>
         <div class="col-xs-12 alerta">
@@ -33,13 +33,13 @@
             </header>
 
             <!--Alterar aqui o caminho que o post irai ao ser submetido para logar-->
-            <form action = "<?= base_url() ?>index.php/CadastrarUsuario/submit_usuario" method="POST">
+            <form action = "login/login_submit" method="POST">
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-user"></span>
                         </div>
-                        <input type="text" name="usuario" class="form-control" placeholder="Usuário">
+                        <input type="text" name="usuario" class="form-control" placeholder="Usuário" required="required" />
                     </div>
                 </div>
 

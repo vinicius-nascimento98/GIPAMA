@@ -26,11 +26,46 @@
 									<li><a href="<?= base_url() ?>index.php/entrarContato">Entrar em contato</a></li>
 								</ul>
 							</li>
-							<li><a href="<?= base_url() ?>index.php/cadastrarLarTemp">Cadastrar Lar Temp.</a></li>
+							
+							<?php
+								if($this->session->has_userdata('nome') && $this->session->has_userdata('id')){
+							?>
+								<li class="dropdown">
+									<a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Cadastrar<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a href="<?= base_url() ?>index.php/cadastrarLarTemp">Cadastrar Lar Temp.</a></li>
+									</ul>
+								</li>
+							<?php
+								}
+							?>
+
 							<li><a href="<?= base_url() ?>index.php/videos">Videos</a></li>
-							<li><a onclick="sizeFont('+');" id='btn_mais'>A+</a></li>
-							<li><a onclick="sizeFont('-');" id='btn_menos'>A-</a></li>
-							<li id="entrar"><a href="<?= base_url() ?>index.php/login">Entrar</a></li>
+							<li><a href="#" onclick="sizeFont('+');" id='btn_mais'>A+</a></li>
+							<li><a href="#" onclick="sizeFont('-');" id='btn_menos'>A-</a></li>
+						
+							<?php
+								if($this->session->has_userdata('nome') && $this->session->has_userdata('id')){
+							?>
+								<li>
+								<li class="dropdown">
+									<a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Minha conta<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a><?=$this->session->userdata('nome')?></a></li>
+										<li><a href="logout">Sair</a></li>
+									</ul>
+									</li>
+							<?php
+								}else{
+							?>	
+								<li id="entrar"><a href="<?= base_url() ?>index.php/login">Entrar</a></li>
+							<?php
+								}
+							?>
 						</ul>
 					</div>
 				</div>
