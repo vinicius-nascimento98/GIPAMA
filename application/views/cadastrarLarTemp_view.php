@@ -1,11 +1,5 @@
 <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
-
- if(!$this->session->has_userdata('nome') && !$this->session->has_userdata('id')){
-		
-	redirect('Login');
- }
- else{
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -44,51 +38,59 @@
 						?>
 						<form id="formID" action = "<?= base_url() ?>index.php/CadastrarLarTemp/submit_lar_temp" method="POST">
 							<div class="form-row">
-    							<div class="col-md-8 mb-3">
+    							<div class="form-group col-xs-8">
 							      <label for="endereco">Enredeço</label>
 							      <input type="text" class="form-control" id="endereco" name="endereco"  placeholder="Rua ou Avenida..." required />
 						    	</div>
-						    	<div class="col-md-4 mb-3">
-						      		<label for="numeroEnd">Número</label>
-						      		<input type="number" class="form-control" id="numeroEnd" name="numeroEnd" placeholder="Número da residencia..." required />
+						    	<div class="form-group col-xs-4">
+						      		<label class="label-control" for="numeroEnd">Número</label>
+						      		<input type="number" min="0" class="form-control" id="numeroEnd" name="numeroEnd" placeholder="Número..." required />
 						    	</div>
-						    	<div class="col-md-6 mb-3">
-						      		<label for="complemento">Complemento</label>				
+							</div>
+							<div class="form-row">
+						    	<div class="form-group col-xs-6">
+						      		<label class="label-control" for="complemento">Complemento</label>				
 						        	<input type="text" class="form-control" id="complemento" name="complemento"
 						        	placeholder="Informe um complemento..." />
 						    	</div>
-						    	<div class="col-md-6 mb-3">
-						      		<label for="cep">CEP</label>				
+						    	<div class="form-group col-xs-6">
+						      		<label class="label-control" for="cep">CEP</label>				
 						        	<input type="text" class="form-control" id="cep" name="cep" placeholder="Ex.: 00000-000"required />
 						    	</div>
-						    	<div class="col-md-10 mb-3">
-								    <label for="cidade">Cidade</label>
+							</div>
+							<div class="form-row">
+						    	<div class="form-group col-xs-10">
+								    <label class="label-control" for="cidade">Cidade</label>
 								    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe sua cidade..." required />
 								</div>
-								<div class="col-md-2 mb-3">
-							     	<label for="estado">Estado</label>
+								<div class="form-group col-xs-2">
+							     	<label class="label-control" for="estado">Estado</label>
 							      	<input type="text" class="form-control" id="estado" name="estado" placeholder="UF" required />
     							</div>
-    							<div class="col-md-6 mb-3">
-						      		<label for="telefoneLocal">Telefone do local</label>
+							</div>
+							<div class="form-row">
+    							<div class="form-group col-xs-6">
+						      		<label class="label-control" for="telefoneLocal">Telefone do local</label>
 						      		<input type="tel" class="form-control" id="telefoneLocal" name="telefoneLocal" placeholder="Ex.: (00)0000-0000" required />
 						    	</div>
-						    	<div class="col-md-6 mb-3">
-						      		<label for="qtdAnimais">Quantidade de animais</label>
-						      		<input type="number" class="form-control" id="qtdAnimais" name="qtdAnimais" placeholder="Informe a quantidade de animais..." required />
+						    	<div class="form-group col-xs-6">
+						      		<label class="label-control" for="qtdAnimais">Quantidade de animais</label>
+						      		<input type="number" min="1" class="form-control" id="qtdAnimais" name="qtdAnimais" placeholder="Informe a quantidade de animais..." required />
 						    	</div>
-						    	<div class="col-md-8 mb-3">
+							</div>
+							<div class="form-row">
+						    	<div class="form-group col-xs-8">
 						    		<h4>Tipos de animais</h4>
-							    	<select class="custom-select" name="tipoAnimais">
+							    	<select class="custom-select form-control" name="tipoAnimais">
 									  <option value="caes" selected>Cães</option>
 									  <option value="gatos">Gatos</option>
 									  <option value="animaisSilvestres">Animais Silvestres</option>
 									</select>
 								</div>
-								<div class="col-md-4 mb-3">
+								<div class="form-group col-xs-4">
 									<h4>Responsável</h4>
 									<div class="form-check">
-									  	<input class="form-check-input" name="responsavel" type="radio" value="sim" id="sim" onchange="habilita_div(this)" checked="checked"/>
+									  	<input class="form-check-input" name="responsavel" type="radio" value="sim" id="sim" onchange="habilita_div(this)" />
 									  	<label class="form-check-label" for="sim">
 									    	Sim
 									  	</label>
@@ -98,21 +100,35 @@
 									  	</label>
 									</div>
 								</div>
-						    	<div class="col-md-6 mb-3" id="nomeResp">
-						      		<label for="nomeCompletoResponsavel">Nome Completo</label>	
-						        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Informe o nome do responsável..." />
+							</div>
+							<div class="form-row" id="camposAdicionais">
+								<div id="campos">
+							    	<div class="form-group col-xs-5 hidden" id="nomeResp">
+							      		<label class="label-control" for="nomeCompletoResponsavel">Nome Completo</label>	
+							        	<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel" placeholder="Nome do responsável..." />
+							    	</div>
+							    	<div class="form-group col-xs-5 hidden" id="telefoneResp">
+							      		<label class="label-control" for="telefone">Telefone Responsável</label>
+							      		<input type="tel" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Ex.: (00)0000-0000" />
+							    	</div>
+							    	<div class="form-group col-xs-2 hidden">
+							    		<button type="button" id="0" class="btn btn-danger hidden" onclick=" btnRemoverCampos(this)">Remover</button>
+							    	</div>
+							    </div>
+							    <div class="form-row">
+						    		<div class="form-group col-xs-12 ">
+						    			<button type="button" id="adicionar" class="btn btn-success hidden" onclick=" btnAdiconarCampos(this)">Adicionar</button>
+						    		</div>
 						    	</div>
-						    	<div class="col-md-6 mb-3" id="telefoneResp">
-						      		<label for="telefone">Telefone Responsável</label>
-						      		<input type="tel" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Ex.: (00)0000-0000" />
-						      		<br>
-						    	</div>
-						    	<div id="adicionaCampo">
-						    		<button type="submit" id="adicionar" class="btn btn-success" onchange="habilita_div(this)">+</button>
-						    	</div>
-						  	</div>						  	
-						  	<button type="reset" id="btnLimpar" class="btn btn-danger">Limpar</button>
-							<button type="submit" id="btnEnviar" class="btn btn-success">Enviar</button>
+						  	</div>	
+						  	<div class="form-row">	
+						  		<div class="col-md-6 mb-3">				  	
+								  	<button type="reset" id="btnLimpar" class="btn btn-danger">Limpar</button>	
+								</div>
+								<div class="col-md-6 mb-3">				  	
+									<button type="submit" id="btnEnviar" class="btn btn-success">Enviar</button>
+								</div>
+							</div>
 						</form>
 					</div>
 				</div>
@@ -128,9 +144,5 @@
 		<script src="<?= base_url() ?>javascripts/jquery.mask.js"></script>
 		<script src="<?= base_url() ?>javascripts/jquery.mask.min.js"></script>
 		<script src="<?= base_url() ?>javascripts/mascara.js"></script>
-
 	</body>
 </html>
-<?php
- }
-?>

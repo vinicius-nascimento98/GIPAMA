@@ -1,30 +1,76 @@
 function habilita_div(selecao){
-
-	$("#telefoneResp").css("display","none");
-	$("#nomeResp").css("display","none");
-	$("#adicionar").css("display","none");
 	
 	if($(selecao).val() == "nao"){
-		$("#telefoneResp").css("display","block");
-		$("#nomeResp").css("display","block");
-		$("#adicionar").css("display","block");
+		$("#telefoneResp").removeClass('hidden');
+		$("#nomeResp").removeClass('hidden');
+		$("#adicionar").removeClass('hidden');
+		$("#remover").removeClass('hidden');
+		$("#camposAdicionais").removeClass('hidden');
+	
+	}else{
+
+		$("#telefoneResp").addClass('hidden');
+		$("#nomeResp").addClass('hidden');
+		$("#adicionar").addClass('hidden');
+		$("#remover").addClass('hidden');
+		$("#camposAdicionais").addClass('hidden');
 	}
-	else{
-		$("#"+$(selecao).val()).css("display","block");
+} 
+	
+var addId = 0;
+function btnAdiconarCampos(selecao){
+	
+	var selecao = $("input[name='responsavel']:checked").val();
+
+	addId++;
+
+	if(selecao == "nao"){
+		
+		$("#campos").append(
+			'<div class="form-group col-xs-5 " id="nomeResp' + addId + '">\
+				<label class="label-control" id="labelNome' + addId + '" for="nomeCompletoResponsavel">Nome Completo</label>\
+				<input type="text" class="form-control" id="nomeCompletoResponsavel_' + addId + '" name="nomeCompletoResponsavel"\
+				placeholder="Nome do responsável..." /></div>\
+			<div class="form-group col-xs-5 " id="telefoneResp' + addId + '">\
+				<label class="label-control" id="labelTelefone' + addId + '" for="telefone">Telefone Responsável</label>\
+				<input type="tel" class="form-control" id="telefoneResponsavel_' + addId + '" name="telefoneResponsavel"\
+			 	placeholder="Ex.: (00)0000-0000" />\
+			</div>\
+			<div class="form-group col-xs-2 ">\
+			 	<button type="button" id="' + addId + '" class="btn btn-danger" onclick=" btnRemoverCampos(this)">-</button>\
+			</div>'
+		);
+
+	}else{
+
+		$("#campos").append(
+			'<div class="col-md-4 mb-3 hidden" id="nomeResp">\
+				<label for="nomeCompletoResponsavel">Nome Completo</label>\
+				<input type="text" class="form-control" id="nomeCompletoResponsavel" name="nomeCompletoResponsavel"\
+				placeholder="Informe o nome do responsável..." />\
+			</div>\
+			<div class="col-md-4 mb-3 hidden" id="telefoneResp">\
+				<label for="telefone">Telefone Responsável</label><input type="tel" class="form-control"\
+				 id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Ex.: (00)0000-0000" />\
+			</div>\
+			<div class="col-md-4 mb-3 ">\
+				<button type="button" id="remover" class="btn btn-danger hidden " onclick=" btns(this)">-</button>\
+			</div>'
+		);
 	}
 }
 
-$(document).ready(function() {
-	$("#adicionar").click(function() {
-	
-	var novoCampoNomeResp = $('#nomeResp').clone().removeAttr('id'); // Evitar id duplicado
-	var novoCampoTelefoneResp = $("#telefoneResp").clone().removeAttr('id'); // Evitar id duplicado
-    
-	novoCampoNomeResp.children('input').val(''); //limpa o campo  Nome responsavel
-    novoCampoTelefoneResp.children('input').val(''); //limpa o campo Telefone responsavel
-    
-    $("#adicionaCampo").append(novoCampoNomeResp);
-    $("#adicionaCampo").append(novoCampoTelefoneResp);
+function btnRemoverCampos(selecao){
+	console.log(selecao.id);
 
-	});
-});
+	var id = selecao.id;
+
+	$('#nomeCompletoResponsavel_' + id).val('');
+	$('#telefoneResponsavel_' + id).val('');
+
+	$('#labelNome' + id).addClass('hidden');
+	$('#labelTelefone' + id).addClass('hidden');
+	$('#nomeCompletoResponsavel_' + id).addClass('hidden');
+	$('#telefoneResponsavel_' + id).addClass('hidden');
+	$('#' + id).addClass('hidden');
+}
