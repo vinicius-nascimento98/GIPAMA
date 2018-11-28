@@ -14,7 +14,6 @@
 		<link rel="stylesheet" href="<?= base_url() ?>stylesheets/estilos.css">
 		<link rel="stylesheet" href="<?= base_url() ?>stylesheets/estilo_contatos.css">
 		<link rel="stylesheet" href="<?= base_url() ?>stylesheets/estilo_entrar_contatos.css">
-		<link rel="stylesheet" href="<?= base_url() ?>stylesheets/onchange_div.css">
 		<link rel="stylesheet" href="<?= base_url() ?>stylesheets/cadastrar_lar_temp.css">
        
     </head>
@@ -111,9 +110,6 @@
 							      		<label class="label-control" for="telefone">Telefone Responsável</label>
 							      		<input type="tel" class="form-control" id="telefoneResponsavel" name="telefoneResponsavel" placeholder="Ex.: (00)0000-0000" />
 							    	</div>
-							    	<div class="form-group col-xs-2 hidden">
-							    		<button type="button" id="0" class="btn btn-danger hidden" onclick=" btnRemoverCampos(this)">Remover</button>
-							    	</div>
 							    </div>
 							    <div class="form-row">
 						    		<div class="form-group col-xs-12 ">
@@ -121,14 +117,14 @@
 						    		</div>
 						    	</div>
 						  	</div>	
-						  	<div class="form-row">	
+						  	<footer>	
 						  		<div class="col-md-6 mb-3">				  	
 								  	<button type="reset" id="btnLimpar" class="btn btn-danger">Limpar</button>	
 								</div>
 								<div class="col-md-6 mb-3">				  	
 									<button type="submit" id="btnEnviar" class="btn btn-success">Enviar</button>
 								</div>
-							</div>
+							</footer>
 						</form>
 					</div>
 				</div>

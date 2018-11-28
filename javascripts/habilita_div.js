@@ -37,11 +37,16 @@ function btnAdiconarCampos(selecao){
 					<input type="tel" class="form-control tel" id="telefoneResponsavel_' + addId + '" name="telefoneResponsavel_' + addId + '"\
 					placeholder="Ex.: (00)0000-0000" />\
 				</div>\
-				<div class="form-group col-xs-2 ">\
-					<button type="button" id="' + addId + '" class="btn btn-danger" onclick=" btnRemoverCampos(this)">-</button>\
+			</div>\
+			<div class="form-row">\
+				<div class="form-group col-xs-2" >\
+					<button type="button" id="' + addId + '" class="btn btn-danger btn-lg " onclick=" btnRemoverCampos(this)">-</button>\
 				</div>\
 			</div>'
+
 		);
+		//mascara do campo telefone em inputs dinamicos
+		$(".tel").mask('(99)9999-9999');
 
 	}else{
 
