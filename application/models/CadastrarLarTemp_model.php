@@ -17,7 +17,7 @@ class CadastrarLarTemp_model extends CI_Model {
         //montando vetor para inserir na tabela lar_temp
         foreach ($registro as $i => $v) {
             
-            if($i != 'nome'){
+            if($i != 'telefone_resp'){
                 
                 if($i == 'usuario_resp'){
                     $v == 'sim' ? $v=1 : $v=0;
@@ -31,17 +31,14 @@ class CadastrarLarTemp_model extends CI_Model {
 
         }
         
-        //montando vetores das tabelas responsável e telefone_responsavel
-        if($registro['usuario_resp'] != 'sim'){
-                
-            $resp['nome'] = $registro['nome'];
-            $tel_resp = $registro['n_telefone_responsavel'];
-        }
 
-        $this->db->trans_strict(TRUE);
+        //$this->db->trans_strict(TRUE);
+
+        var_dump($lar_temp);
 
         //montando as query's de inserção do banco de dados e suas transações
         $this->db->trans_start(); 
+
             $this->db->insert('lar_temp',$lar_temp);
             $id_lar_temp = $this->db->select_max('id')
                 ->get('lar_temp')
@@ -49,15 +46,19 @@ class CadastrarLarTemp_model extends CI_Model {
             
             if(!$lar_temp['usuario_resp']){
 
-                $this->db->insert('responsavel',$resp);
-                
-				$id_resp = $this->db->select_max('id')
+                for($i = 0; $i < sizeof($registro['nome_resp']); $i++) {
+                    $this->db->query("INSERT INTO responsavel (`nome`) VALUES ('".$registro['nome_resp'][$i]."')");
+                    $id_resp = $this->db->select_max('id')
                     ->get('responsavel')
                     -> result_array();
+                    $this->db->query("INSERT INTO telefone_responsavel (`n_telefone`,`cod_responsavel`) VALUES ('".$registro['telefone_resp'][$i]."',".$id_resp[0]['id'].")");
 
-                $this->db->query("INSERT INTO telefone_responsavel (`n_telefone`,`cod_responsavel`) VALUES ('$tel_resp',".$id_resp[0]['id'].")");
-                $this->db->query("INSERT INTO lar_temp_resp (`cod_responsavel`, `cod_lar_temp`) VALUES (".$id_resp[0]['id'].",".$id_lar_temp[0]['id'].")");
+
+                    $this->db->query("INSERT INTO lar_temp_resp (`cod_responsavel`, `cod_lar_temp`) VALUES (".$id_resp[0]['id'].",".$id_lar_temp[0]['id'].")");
+                }
+
             }
+
         $this->db->trans_complete();
 
         if($this->db->trans_status() == FALSE){ 

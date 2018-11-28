@@ -23,7 +23,7 @@ class CadastrarUsuario extends CI_Controller {
 		$param['cod_papel'] = $this->input->post('papel'); 
 		$param['nome'] = $this->input->post('nome');
 		$param['cpf'] = $this->input->post('cpf'); 
-		$param['rg'] = $this->input->post('rg'); 
+		$param['rg'] = $this->input->post('rg') == '' ? null : $this->input->post('rg'); 
 		$param['cidade'] = $this->input->post('cidade'); 
 		$param['estado'] = $this->input->post('estado'); 
 		$param['data_nasc'] = $this->input->post('data_nasc');

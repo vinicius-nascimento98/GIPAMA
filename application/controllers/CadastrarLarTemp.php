@@ -27,25 +27,26 @@ class CadastrarLarTemp extends CI_Controller {
 		$param['cep']=$this->input->post('cep');
 		$param['cidade']=$this->input->post('cidade');
 		$param['estado']=$this->input->post('estado');
-		$param['complemento']=$this->input->post('complemento');
+		$param['complemento']=$this->input->post('complemento') == '' ? null : $this->input->post('complemento');
 		$param['usuario_resp']=$this->input->post('responsavel');
-		$param['cod_usuario']=1234567898; //aqui deve ser colocado a sessão com o id do usuario
-		$param['telefone']=$this->input->post('telefoneLocal');
-		$param['nome']=$this->input->post('nomeCompletoResponsavel');
+		$param['cod_usuario']=$this->session->userdata('id'); //aqui deve ser colocado a sessão com o id do usuario
+		$param['telefone'] = $this->input->post('telefoneLocal');
 		
-		$c = 0;
+		//laço de repetição para recuperar os telefones do responsável e os nomes
 		foreach($this->input->post() as $i => $v){
 			
 			if(substr($i, 0, 19) == "telefoneResponsavel"){
-				$param['n_telefone_responsavel']=$this->input->post('telefoneResponsavel');
+				$telefone_resp[]= $v;
+			}
+			else if(substr($i, 0, 23) == "nomeCompletoResponsavel"){
+				$responsavel[] = $v;
 			}
 		}
-		
-		/*if(telefoneResponsavel){
-			$param['n_telefone_responsavel']=$this->input->post('telefoneResponsavel');
-		}
-		//passando dados para o método de inserção no banco de dados
-		var_dump($param);*/
+
+		$param['telefone_resp'] = $telefone_resp;
+		$param['nome_resp'] = $responsavel;
+
+		$this->inserir_lar_temp($param);
 		
 	}
 

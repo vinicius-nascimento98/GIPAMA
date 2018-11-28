@@ -56,7 +56,7 @@
 									</a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<li><a><?=$this->session->userdata('nome')?></a></li>
-										<li><a href="logout">Sair</a></li>
+										<li><a href="<?= base_url() ?>index.php/login/logout">Sair</a></li>
 									</ul>
 									</li>
 							<?php
