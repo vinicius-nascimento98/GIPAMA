@@ -32,10 +32,20 @@ class CadastrarLarTemp extends CI_Controller {
 		$param['cod_usuario']=1234567898; //aqui deve ser colocado a sessão com o id do usuario
 		$param['telefone']=$this->input->post('telefoneLocal');
 		$param['nome']=$this->input->post('nomeCompletoResponsavel');
-		$param['n_telefone_responsavel']=$this->input->post('telefoneResponsavel');
-
+		
+		$c = 0;
+		foreach($this->input->post() as $i => $v){
+			
+			if(substr($i, 0, 19) == "telefoneResponsavel"){
+				$param['n_telefone_responsavel']=$this->input->post('telefoneResponsavel');
+			}
+		}
+		
+		/*if(telefoneResponsavel){
+			$param['n_telefone_responsavel']=$this->input->post('telefoneResponsavel');
+		}
 		//passando dados para o método de inserção no banco de dados
-		$this->inserir_lar_temp($param);
+		var_dump($param);*/
 		
 	}
 
